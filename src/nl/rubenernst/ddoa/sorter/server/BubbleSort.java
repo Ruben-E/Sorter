@@ -13,6 +13,19 @@ public class BubbleSort implements ISorter {
 
     @Override
     public Comparable[] sort(Comparable[] comparables) {
-        return new Comparable[0];  //To change body of implemented methods use File | Settings | File Templates.
+        int i, j;
+        Comparable temp;
+
+        for (j = 0; j < comparables.length; j++) {
+            for (i = 1; i < comparables.length - j; i++) {
+                if (comparables[i - 1].compareTo(comparables[i]) >= 1) {
+                    temp = comparables[i];
+                    comparables[i] = comparables[i - 1];
+                    comparables[i - 1] = temp;
+                }
+            }
+        }
+
+        return comparables;
     }
 }
