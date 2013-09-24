@@ -6,4 +6,7 @@ package nl.rubenernst.ddoa.sorter.client;
  * Time: 11:16 AM
  */
 public class SortClient {
+    public static void main(String[] args) {
+
+    }
 }
