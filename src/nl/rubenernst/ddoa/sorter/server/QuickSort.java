@@ -12,9 +12,9 @@ public class QuickSort implements ISorter {
     }
 
     /**
-     * @source http://thilinasameera.wordpress.com/2011/06/01/sorting-algorithms-sample-codes-on-java-c-and-matlab/ (2013, 24 september)
      * @param comparables
      * @return
+     * @source http://thilinasameera.wordpress.com/2011/06/01/sorting-algorithms-sample-codes-on-java-c-and-matlab/ (2013, 24 september)
      */
     @Override
     public Comparable[] sort(Comparable[] comparables) {
