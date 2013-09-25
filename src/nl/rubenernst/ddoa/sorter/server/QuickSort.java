@@ -1,14 +1,17 @@
 package nl.rubenernst.ddoa.sorter.server;
 
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
 /**
  * User: rubenernst
  * Date: 9/24/13
  * Time: 3:16 PM
  */
-public class QuickSort implements ISorter {
+public class QuickSort extends UnicastRemoteObject implements ISorter {
 
-    public QuickSort() {
-
+    public QuickSort() throws RemoteException {
+        super();
     }
 
     /**

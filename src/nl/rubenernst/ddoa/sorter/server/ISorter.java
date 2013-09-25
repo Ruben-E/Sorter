@@ -7,6 +7,6 @@ import java.rmi.*;
  * Date: 9/24/13
  * Time: 11:26 AM
  */
-public interface ISorter {
+public interface ISorter extends Remote {
     public Comparable[] sort(Comparable[] comparables);
 }
