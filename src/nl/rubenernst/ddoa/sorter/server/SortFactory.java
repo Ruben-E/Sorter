@@ -11,10 +11,11 @@ import java.rmi.server.UnicastRemoteObject;
 public class SortFactory extends UnicastRemoteObject implements ISortFactory {
 
     protected SortFactory() throws RemoteException {
+        super();
     }
 
     @Override
-    public ISorter buildSorter(SortType type) {
+    public ISorter buildSorter(SortType type) throws RemoteException{
         ISorter sorter = null;
         try {
             switch (type) {

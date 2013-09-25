@@ -1,6 +1,6 @@
 package nl.rubenernst.ddoa.sorter.server;
 
-import java.rmi.Remote;
+import java.rmi.*;
 
 /**
  * User: rubenernst
@@ -8,5 +8,5 @@ import java.rmi.Remote;
  * Time: 3:46 PM
  */
 public interface ISortFactory extends Remote {
-    public ISorter buildSorter(SortType type);
+    public ISorter buildSorter(SortType type) throws RemoteException;
 }
