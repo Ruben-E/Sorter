@@ -50,13 +50,38 @@ public class ListGeneratorTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testGenerateRandomStringNegative() throws Exception {
+    public void testGenerateRandomStringsNegative() throws Exception {
         ListGenerator.generateRandomStrings(-10);
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testGenerateRandomStringZero() throws Exception {
+    public void testGenerateRandomStringsZero() throws Exception {
         ListGenerator.generateRandomStrings(0);
+    }
+
+    @Test
+    public void testGenerateRandomCars() throws Exception {
+        int[] arrayLengths = {10, 100, 1000, 10000};
+        for (int arrayLength : arrayLengths) {
+            Comparable[] random = ListGenerator.generateRandomCars(arrayLength);
+            assertEquals(arrayLength, random.length);
+
+            for (Comparable value : random) {
+                Car car = (Car) value;
+                assertThat(value, instanceOf(Car.class));
+                assertThat(car.getTopSpeed(), instanceOf(Integer.class));
+            }
+        }
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGenerateRandomCarsNegative() throws Exception {
+        ListGenerator.generateRandomCars(-10);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGenerateRandomCarsZero() throws Exception {
+        ListGenerator.generateRandomCars(0);
     }
 
     @Test
@@ -73,5 +98,42 @@ public class ListGeneratorTest {
                 }
             }
         }
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGenerateRandomListNegative() throws Exception {
+        Class[] randomItemClasses = {String.class, Integer.class};
+        int[] arrayLengths = {-10};
+        for (Class itemClass : randomItemClasses) {
+            for (int arrayLength : arrayLengths) {
+                Comparable[] random = ListGenerator.generateRandomList(itemClass, arrayLength);
+                assertEquals(arrayLength, random.length);
+
+                for (Comparable value : random) {
+                    assertThat(value, instanceOf(itemClass));
+                }
+            }
+        }
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGenerateRandomListZero() throws Exception {
+        Class[] randomItemClasses = {String.class, Integer.class};
+        int[] arrayLengths = {0};
+        for (Class itemClass : randomItemClasses) {
+            for (int arrayLength : arrayLengths) {
+                Comparable[] random = ListGenerator.generateRandomList(itemClass, arrayLength);
+                assertEquals(arrayLength, random.length);
+
+                for (Comparable value : random) {
+                    assertThat(value, instanceOf(itemClass));
+                }
+            }
+        }
+    }
+
+    @Test(expected = NoSuchMethodException.class)
+    public void testGenerateRandomListNonExistingGenerator() throws Exception {
+        ListGenerator.generateRandomList(Float.class, 10);
     }
 }
