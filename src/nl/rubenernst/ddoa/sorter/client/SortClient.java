@@ -26,7 +26,9 @@ public class SortClient {
             sortFactory = (ISortFactory) Naming.lookup("//localhost:1099/sortfactory");
             ISorter sorter = sortFactory.buildSorter(SortType.BUBBLESORT);
             Comparable[] sorted = sorter.sort(unsorted);
-            System.out.println(sorted);
+            for(int i = 0; i< sorted.length; i++) {
+                System.out.println(sorted[i]);
+            }
         } catch (NotBoundException e) {
             e.printStackTrace();
         } catch (MalformedURLException e) {
