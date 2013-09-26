@@ -20,7 +20,7 @@ public class QuickSort extends UnicastRemoteObject implements ISorter {
      * @source http://thilinasameera.wordpress.com/2011/06/01/sorting-algorithms-sample-codes-on-java-c-and-matlab/ (2013, 24 september)
      */
     @Override
-    public Comparable[] sort(Comparable[] comparables) {
+    public Comparable[] sort(Comparable[] comparables) throws RemoteException {
         int lenD = comparables.length;
         Comparable pivot = 0;
         int ind = lenD / 2;

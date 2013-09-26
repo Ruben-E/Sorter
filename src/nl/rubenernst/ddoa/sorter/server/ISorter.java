@@ -8,5 +8,5 @@ import java.rmi.*;
  * Time: 11:26 AM
  */
 public interface ISorter extends Remote {
-    public Comparable[] sort(Comparable[] comparables);
+    public Comparable[] sort(Comparable[] comparables) throws RemoteException;
 }

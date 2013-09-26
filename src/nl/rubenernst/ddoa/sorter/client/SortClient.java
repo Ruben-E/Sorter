@@ -13,7 +13,8 @@ import java.rmi.RemoteException;
  * Time: 11:16 AM
  */
 public class SortClient {
-    private SortFactory sortFactory;
+    private ISortFactory sortFactory;
+
     public static void main(String[] args) {
         SortClient sortClient = new SortClient();
         sortClient.sort();
@@ -22,7 +23,7 @@ public class SortClient {
     public void sort() {
         Comparable[] unsorted = {45, 3, 456, 1, 55, 12, 21, 85, 5, 3, 8, 27, 96, 123, 54, 6, 7, 53, 467, 4};
         try {
-            sortFactory = (SortFactory) Naming.lookup("//localhost:1099/sortfactory");
+            sortFactory = (ISortFactory) Naming.lookup("//localhost:1099/sortfactory");
             ISorter sorter = sortFactory.buildSorter(SortType.BUBBLESORT);
             Comparable[] sorted = sorter.sort(unsorted);
             System.out.println(sorted);
