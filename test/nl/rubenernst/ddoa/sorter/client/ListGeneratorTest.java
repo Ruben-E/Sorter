@@ -35,16 +35,24 @@ public class ListGeneratorTest {
             Comparable value = random3[i];
             assertThat(value, instanceOf(Integer.class));
         }
+
+        Comparable[] random4 = ListGenerator.generateRandomIntegers(10000);
+        assertEquals(10000, random4.length);
+
+        for(int i = 0; i < random4.length; i++) {
+            Comparable value = random4[i];
+            assertThat(value, instanceOf(Integer.class));
+        }
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testGenerateRandomIntegersNegative() throws Exception {
-        Comparable[] random = ListGenerator.generateRandomIntegers(-10);
+        ListGenerator.generateRandomIntegers(-10);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testGenerateRandomIntegersZero() throws Exception {
-        Comparable[] random = ListGenerator.generateRandomIntegers(0);
+        ListGenerator.generateRandomIntegers(0);
     }
 
     @Test
