@@ -17,32 +17,28 @@ public class SortClient {
 
     public static void main(String[] args) {
         SortClient sortClient = new SortClient();
-        sortClient.sort();
+        try {
+            sortClient.sort();
+        } catch (Exception e) {
+            System.out.println("Sorting failed: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
-    public void sort() {
-        Comparable[] unsorted = {45, 3, 456, 1, 55, 12, 21, 85, 5, 3, 8, 27, 96, 123, 54, 6, 7, 53, 467, 4};
-        try {
-            sortFactory = (ISortFactory) Naming.lookup("//localhost:1099/sortfactory");
+    public void sort() throws Exception {
+        sortFactory = (ISortFactory) Naming.lookup("//localhost:1099/sortfactory");
 
-            Comparable[] list = ListGenerator.generateRandomIntegers(1000);
-            Comparable[][] lists = ListSplicer.splice(list, 2);
-            for (Comparable[] lst : lists) {
-                ISorter sorter = sortFactory.buildSorter(SortType.random());
-                Comparable[] results = sorter.sort(lst);
-                System.out.println("RESULTS FOR SORTER");
-                for(Comparable result : results) {
-                    System.out.println(result);
-                }
+        Comparable[] randomList = ListGenerator.generateRandomStrings(1000);
+        Comparable[][] lists = ListSplicer.splice(randomList, 2);
+        for (Comparable[] splicedList : lists) {
+            SortType sortType = SortType.random();
+            ISorter sorter = sortFactory.buildSorter(sortType);
+
+            Comparable[] results = sorter.sort(splicedList);
+            System.out.println("RESULTS FOR SORTER: " + sortType.toString());
+            for (Comparable result : results) {
+                System.out.println(result);
             }
-        } catch (NotBoundException e) {
-            e.printStackTrace();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }
