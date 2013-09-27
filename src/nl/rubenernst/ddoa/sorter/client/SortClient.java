@@ -24,16 +24,24 @@ public class SortClient {
         Comparable[] unsorted = {45, 3, 456, 1, 55, 12, 21, 85, 5, 3, 8, 27, 96, 123, 54, 6, 7, 53, 467, 4};
         try {
             sortFactory = (ISortFactory) Naming.lookup("//localhost:1099/sortfactory");
-            ISorter sorter = sortFactory.buildSorter(SortType.BUBBLESORT);
-            Comparable[] sorted = sorter.sort(unsorted);
-            for(int i = 0; i< sorted.length; i++) {
-                System.out.println(sorted[i]);
+
+            Comparable[] list = ListGenerator.generateRandomIntegers(1000);
+            Comparable[][] lists = ListSplicer.splice(list, 2);
+            for (Comparable[] lst : lists) {
+                ISorter sorter = sortFactory.buildSorter(SortType.random());
+                Comparable[] results = sorter.sort(lst);
+                System.out.println("RESULTS FOR SORTER");
+                for(Comparable result : results) {
+                    System.out.println(result);
+                }
             }
         } catch (NotBoundException e) {
             e.printStackTrace();
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (RemoteException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
