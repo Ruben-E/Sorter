@@ -6,5 +6,9 @@ package nl.rubenernst.ddoa.sorter.server;
  * Time: 3:53 PM
  */
 public enum SortType {
-    BUBBLESORT, QUICKSORT
+    BUBBLESORT, QUICKSORT;
+
+    public static SortType random() {
+        return values()[(int) (Math.random() * values().length)];
+    }
 }
