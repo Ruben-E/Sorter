@@ -1,5 +1,8 @@
 package nl.rubenernst.ddoa.sorter.client;
 
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -57,14 +60,17 @@ public class ListJoiner extends Observable implements Observer {
 
     public Comparable[] finalSort() {
         //TODO: MERGE LISTS
-        Comparable[] mergedList = new Comparable[this.totalItems()];
+        ListMerger listMerger = new ListMerger(this.lists);
+        Comparable[] mergedList = new Comparable[0];
 
-        int i = 0;
-        for(Comparable[] list : lists) {
-            for(Comparable item : list) {
-                mergedList[i] = item;
-                i++;
-            }
+        try {
+            mergedList = listMerger.merge();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        } catch (NotBoundException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
         }
 
         return mergedList;

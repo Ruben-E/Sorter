@@ -6,4 +6,5 @@ package nl.rubenernst.ddoa.sorter.server;
  * Time: 8:01 PM
  */
 public class MergeSort {
+
 }

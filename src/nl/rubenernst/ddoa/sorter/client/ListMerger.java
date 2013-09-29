@@ -40,6 +40,7 @@ public class ListMerger {
     public Comparable[] merge() throws RemoteException, NotBoundException, MalformedURLException {
         //TODO: Config file
         ISortFactory sortFactory = (ISortFactory) Naming.lookup("//localhost:1099/sortfactory");
+        //TODO: Change to MergeSort;
         ISorter sorter = sortFactory.buildSorter(SortType.QUICKSORT);
 
         Comparable[] results = sorter.sort(this.list);
