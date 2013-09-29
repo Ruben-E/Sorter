@@ -28,6 +28,7 @@ public class SortClient implements Observer {
     }
 
     public void sort() throws Exception {
+        //TODO: Configfile
         sortFactory = (ISortFactory) Naming.lookup("//localhost:1099/sortfactory");
 
         Comparable[] randomList = ListGenerator.generateRandomIntegers(1000);

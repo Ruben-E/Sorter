@@ -58,6 +58,7 @@ public class ListJoiner extends Observable implements Observer {
     public Comparable[] finalSort() {
         //TODO: MERGE LISTS
         Comparable[] mergedList = new Comparable[this.totalItems()];
+
         int i = 0;
         for(Comparable[] list : lists) {
             for(Comparable item : list) {
