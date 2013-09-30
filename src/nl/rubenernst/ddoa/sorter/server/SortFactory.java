@@ -25,6 +25,8 @@ public class SortFactory extends UnicastRemoteObject implements ISortFactory {
                 case QUICKSORT:
                     sorter = new QuickSort();
                     break;
+                case MERGESORT:
+                    sorter = new MergeSort();
                 default:
                     break;
             }
