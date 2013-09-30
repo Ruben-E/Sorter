@@ -63,15 +63,15 @@ public class ListJoiner extends Observable implements Observer {
         ListMerger listMerger = new ListMerger(this.lists);
         Comparable[] mergedList = new Comparable[0];
 
-        try {
+        //try {
             mergedList = listMerger.merge();
-        } catch (RemoteException e) {
+        /* } catch (RemoteException e) {
             e.printStackTrace();
         } catch (NotBoundException e) {
             e.printStackTrace();
         } catch (MalformedURLException e) {
             e.printStackTrace();
-        }
+        } */
 
         return mergedList;
     }
