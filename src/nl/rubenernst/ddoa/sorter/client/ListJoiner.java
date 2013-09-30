@@ -59,19 +59,14 @@ public class ListJoiner extends Observable implements Observer {
     }
 
     public Comparable[] finalSort() {
-        //TODO: MERGE LISTS
         ListMerger listMerger = new ListMerger(this.lists);
         Comparable[] mergedList = new Comparable[0];
 
-        //try {
+        try {
             mergedList = listMerger.merge();
-        /* } catch (RemoteException e) {
-            e.printStackTrace();
-        } catch (NotBoundException e) {
-            e.printStackTrace();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } */
+        } catch (IllegalArgumentException e) {
+            //Do nothing; can't merge.
+        }
 
         return mergedList;
     }

@@ -1,7 +1,7 @@
 package nl.rubenernst.ddoa.sorter.server;
 
 import java.rmi.RemoteException;
-import java.util.Arrays;
+import java.rmi.server.UnicastRemoteObject;
 
 /**
  * User: rubenernst
@@ -10,7 +10,11 @@ import java.util.Arrays;
  *
  * @source: http://www.cs.cmu.edu/~adamchik/15-121/lectures/Sorting%20Algorithms/code/MergeSort.java
  */
-public class MergeSort implements ISorter {
+public class MergeSort extends UnicastRemoteObject implements ISorter {
+
+    protected MergeSort() throws RemoteException {
+        super();
+    }
 
     @Override
     public Comparable[] sort(Comparable[] comparables) throws RemoteException {
@@ -52,6 +56,4 @@ public class MergeSort implements ISorter {
         for (int i = 0; i < num; i++, rightEnd--)
             a[rightEnd] = tmp[rightEnd];
     }
-
-
 }
