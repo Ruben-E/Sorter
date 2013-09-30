@@ -11,6 +11,10 @@ public class ListMerger {
     private int lastMerged;
 
     public ListMerger(Comparable[][] lists) {
+        if(lists.length == 0) {
+            throw new IllegalArgumentException();
+        }
+
         this.lists = lists;
         this.list = new Comparable[this.totalItems()];
         this.lastMerged = 0;

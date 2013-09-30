@@ -13,6 +13,17 @@ import static org.junit.Assert.*;
  */
 public class ListMergerTest {
     @Test
+    public void testMerge1list() throws Exception {
+        Comparable[][] lists = {{0, 0, 0, 1, 2, 2, 3, 4}};
+        Comparable[] ordered = {0, 0, 0, 1, 2, 2, 3, 4};
+        ListMerger listMerger = new ListMerger(lists);
+
+        Comparable[] list = listMerger.merge();
+
+        assertArrayEquals(ordered, list);
+    }
+
+    @Test
     public void testMerge2lists() throws Exception {
         Comparable[][] lists = {{0, 0, 0, 1, 2, 2, 3, 4}, {0, 1, 1, 1, 2, 3, 4, 4}};
         Comparable[] ordered = {0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 4, 4, 4};
@@ -54,5 +65,11 @@ public class ListMergerTest {
         Comparable[] list = listMerger.merge();
 
         assertArrayEquals(ordered, list);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMergeZero() throws Exception {
+        Comparable[][] lists = {};
+        new ListMerger(lists);
     }
 }
