@@ -47,7 +47,7 @@ public class Car implements Comparable, Serializable {
 
     @Override
     public int compareTo(Object o) {
-        if(o instanceof Car) {
+        if (o instanceof Car) {
             Car compareCar = (Car) o;
 
             Integer topSpeed = this.getTopSpeed();

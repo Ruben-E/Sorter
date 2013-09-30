@@ -11,7 +11,7 @@ public class ListMerger {
     private int lastMerged;
 
     public ListMerger(Comparable[][] lists) {
-        if(lists.length == 0) {
+        if (lists.length == 0) {
             throw new IllegalArgumentException();
         }
 
@@ -21,13 +21,13 @@ public class ListMerger {
     }
 
     public Comparable[] merge() {
-        if(this.lists.length == 1) {
+        if (this.lists.length == 1) {
             return this.lists[0];
         }
 
         this.list = this.lists[0];
 
-        for(Comparable[] list : this.lists) {
+        for (Comparable[] list : this.lists) {
             this.list = this.mergeNext(this.list);
         }
         return this.list;
@@ -35,7 +35,7 @@ public class ListMerger {
 
     private Comparable[] mergeNext(Comparable[] currentList) {
         int nextArray = this.lastMerged + 1;
-        if(this.lists.length > nextArray && this.lists[nextArray] != null) {
+        if (this.lists.length > nextArray && this.lists[nextArray] != null) {
             Comparable[] merged = this.mergeTwoArrays(currentList, this.lists[nextArray]);
             this.lastMerged++;
             return merged;

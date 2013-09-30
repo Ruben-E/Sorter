@@ -15,7 +15,7 @@ public class BubbleSort extends UnicastRemoteObject implements ISorter {
     }
 
     @Override
-    public Comparable[] sort(Comparable[] comparables) throws RemoteException{
+    public Comparable[] sort(Comparable[] comparables) throws RemoteException {
         int i, j;
         Comparable temp;
 

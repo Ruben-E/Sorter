@@ -15,7 +15,7 @@ public class SortFactory extends UnicastRemoteObject implements ISortFactory {
     }
 
     @Override
-    public ISorter buildSorter(SortType type) throws RemoteException{
+    public ISorter buildSorter(SortType type) throws RemoteException {
         ISorter sorter = null;
         try {
             switch (type) {
