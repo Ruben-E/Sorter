@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+
+<project name="RMISorter" default="compile" basedir=".">
+
+    <property name="dirs.source" value="${basedir}/src" />
+    <property name="dirs.test" value="${basedir}/test" />
+    <property name="dirs.build" value="${basedir}/build" />
+    <property name="dirs.dist" value="${basedir}/dist" />
+    <property name="dirs.config" value="${basedir}/toolconfigs" />
+    <property name="dirs.libs" value="${basedir}/libs" />
+    <property name="dirs.reports" value="${basedir}/reports" />
+    <property name="dirs.javadoc" value="${basedir}/reports/javadoc" />
+    <property name="dirs.junit" value="${basedir}/reports/junit" />
+    <property name="dirs.checkstyle" value="${basedir}/reports/checkstyle" />
+
+    <path id="base.classpath">
+        <pathelement location="${dirs.build}" />
+        <pathelement path="${java.class.path}" />
+        <fileset dir="libs">
+            <include name="**/*.jar" />
+        </fileset>
+    </path>
+
+    <target name="init">
+        <echo>Initializing timestamp, creating dirs</echo>
+        <tstamp />
+        <mkdir dir="${dirs.build}" />
+    </target>
+
+    <target name="compile" depends="init" description="Compile all of the source code">
+        <echo>Compiling all the code</echo>
+        <javac srcdir="${dirs.source};${dirs.test}" destdir="${dirs.build}" >
+            <classpath refid="base.classpath"/>
+        </javac>
+    </target>
+
+    <target name="junittests" depends="compile" description="Executing JUnit tests">
+        <echo>Testing, testing, testing ... </echo>
+        <mkdir dir="${dirs.junit}" />
+        <junit haltonfailure="no" printsummary="yes" showoutput="yes">
+            <classpath refid="base.classpath" />
+            <formatter type="xml" />
+            <batchtest todir="${dirs.junit}">
+                <fileset dir="${dirs.build}">
+                    <include name="**/*Test.class" />
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+
+    <target name="javadoc">
+        <mkdir dir="${dirs.javadoc}" />
+        <echo>Generate javadoc</echo>
+        <javadoc sourcepath="${dirs.source}" destdir="${dirs.javadoc}" packagenames="*.*" />
+    </target>
+
+
+    <target name="dist" depends="clean,junittests, javadoc" description="Generate the distribution">
+        <echo>Generate lib(s) in jar format</echo>
+        <mkdir dir="${dirs.dist}/lib" />
+        <jar jarfile="${dirs.dist}/lib/RMISorter-${DSTAMP}.jar" basedir="${dirs.build}" />
+    </target>
+
+    <target name="clean" description="Delete directories">
+        <delete dir="${dirs.build}" />
+        <delete dir="${dirs.dist}" />
+        <delete dir="${dirs.javadoc}" />
+        <delete dir="${dirs.reports}" />
+        <echo>All cleaned</echo>
+    </target>
+
+</project>
