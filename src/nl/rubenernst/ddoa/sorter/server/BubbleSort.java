@@ -24,12 +24,12 @@ public class BubbleSort extends UnicastRemoteObject implements ISorter {
     }
 
     /**
-     * Sort the list
+     * Sort the array
      *
      * <p>Source: <a href="http://nl.wikipedia.org/wiki/Bubblesort#Implementatie_in_Java">Wikipedia</a>, 2013</p>
      *
-     * @param comparables   The list to sort
-     * @return              An ordered list
+     * @param comparables   Array of comparables to sort
+     * @return              An ordered array
      * @throws RemoteException
      */
     @Override
