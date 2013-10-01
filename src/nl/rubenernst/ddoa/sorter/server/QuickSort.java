@@ -4,20 +4,33 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 /**
+ * Implementation of quicksort
+ * <p/>
+ * <p>See: <a href="http://en.wikipedia.org/wiki/Quicksort">Wikipedia</a></p>
+ * <p/>
  * User: rubenernst
  * Date: 9/24/13
  * Time: 3:16 PM
  */
 public class QuickSort extends UnicastRemoteObject implements ISorter {
 
+    /**
+     * Constructor for QuickSort
+     *
+     * @throws RemoteException
+     */
     public QuickSort() throws RemoteException {
         super();
     }
 
     /**
-     * @param comparables
-     * @return
-     * @source http://thilinasameera.wordpress.com/2011/06/01/sorting-algorithms-sample-codes-on-java-c-and-matlab/ (2013, 24 september)
+     * Sort the array
+     * <p/>
+     * <p>Source: <a href="http://thilinasameera.wordpress.com/2011/06/01/sorting-algorithms-sample-codes-on-java-c-and-matlab/">Thilina Sameera</a>, 2013</p>
+     *
+     * @param comparables Array of comparables to sort
+     * @return An ordered array
+     * @throws RemoteException
      */
     @Override
     public Comparable[] sort(Comparable[] comparables) throws RemoteException {
