@@ -28,7 +28,7 @@ public class MergeSort extends UnicastRemoteObject implements ISorter {
     /**
      * Sort the array
      * <p/>
-     * <p>Source: <a href="http://www.cs.cmu.edu/~adamchik/15-121/lectures/Sorting%20Algorithms/code/MergeSort.java">Victor Adamchik</a></p>
+     * <p>Source: <a href="http://www.cs.cmu.edu/~adamchik/15-121/lectures/Sorting%20Algorithms/code/MergeSort.java">Victor Adamchik</a>, 2013</p>
      *
      * @param comparables Array of comparables to sort
      * @return An ordered array
