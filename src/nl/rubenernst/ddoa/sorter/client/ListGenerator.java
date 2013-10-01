@@ -56,9 +56,9 @@ public class ListGenerator {
     /**
      * Generate a random list (array) of types, based on the type param.
      *
-     * @param type      The array will be filled with random objects of this class.
-     * @param length    The length of the array, number of random objects.
-     * @return          Array with random objects of the type from the type parameter.
+     * @param type   The array will be filled with random objects of this class.
+     * @param length The length of the array, number of random objects.
+     * @return Array with random objects of the type from the type parameter.
      * @throws Exception
      */
     public static Comparable[] generateRandomList(Class type, int length) throws Exception {
@@ -84,8 +84,8 @@ public class ListGenerator {
     /**
      * Generate an array with random cars
      *
-     * @param length    Length of the array
-     * @return          Array with random cars
+     * @param length Length of the array
+     * @return Array with random cars
      * @throws Exception
      */
     public static Comparable[] generateRandomIntegers(int length) throws Exception {
@@ -95,8 +95,8 @@ public class ListGenerator {
     /**
      * Generate an array with random strings
      *
-     * @param length    Length of the Array
-     * @return          Array with random strings
+     * @param length Length of the Array
+     * @return Array with random strings
      * @throws Exception
      */
     public static Comparable[] generateRandomStrings(int length) throws Exception {
@@ -106,8 +106,8 @@ public class ListGenerator {
     /**
      * Generate an array with random cars
      *
-     * @param length    Length of the Array
-     * @return          Array with random cars
+     * @param length Length of the Array
+     * @return Array with random cars
      * @throws Exception
      */
     public static Comparable[] generateRandomCars(int length) throws Exception {

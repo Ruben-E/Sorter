@@ -5,7 +5,7 @@ import java.util.Observer;
 
 /**
  * Class to join the lists (threads)
- *
+ * <p/>
  * User: rubenernst
  * Date: 9/27/13
  * Time: 12:32 PM
@@ -32,8 +32,8 @@ public class ListJoiner extends Observable implements Observer {
     /**
      * Observer for ListThread
      *
-     * @param observable    ListThread instance that called the observer
-     * @param o             Object send to the observer from the observable
+     * @param observable ListThread instance that called the observer
+     * @param o          Object send to the observer from the observable
      */
     @Override
     public void update(Observable observable, Object o) {
@@ -55,8 +55,8 @@ public class ListJoiner extends Observable implements Observer {
     /**
      * Add a single sorted list to the collection of all sorted lists
      *
-     * @param number    Number of the threads
-     * @param list      The sorted Comparable list to add to the collection
+     * @param number Number of the threads
+     * @param list   The sorted Comparable list to add to the collection
      */
     private void addList(int number, Comparable[] list) {
         this.lists[number] = list;

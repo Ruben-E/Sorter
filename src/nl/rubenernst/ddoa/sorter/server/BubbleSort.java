@@ -5,9 +5,9 @@ import java.rmi.server.UnicastRemoteObject;
 
 /**
  * Implementation of bubblesort
- *
+ * <p/>
  * <p>See: <a href="http://en.wikipedia.org/wiki/Bubblesort">Wikipedia</a></p>
- *
+ * <p/>
  * User: rubenernst
  * Date: 9/24/13
  * Time: 11:35 AM
@@ -25,11 +25,11 @@ public class BubbleSort extends UnicastRemoteObject implements ISorter {
 
     /**
      * Sort the array
-     *
+     * <p/>
      * <p>Source: <a href="http://nl.wikipedia.org/wiki/Bubblesort#Implementatie_in_Java">Wikipedia</a>, 2013</p>
      *
-     * @param comparables   Array of comparables to sort
-     * @return              An ordered array
+     * @param comparables Array of comparables to sort
+     * @return An ordered array
      * @throws RemoteException
      */
     @Override

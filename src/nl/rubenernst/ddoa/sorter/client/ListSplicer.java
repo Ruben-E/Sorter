@@ -2,7 +2,7 @@ package nl.rubenernst.ddoa.sorter.client;
 
 /**
  * Splice an array into multiple pieces
- *
+ * <p/>
  * User: rubenernst
  * Date: 9/26/13
  * Time: 5:10 PM
@@ -14,7 +14,7 @@ public class ListSplicer {
      *
      * @param list          The list to splice
      * @param numberOfLists Number of pieces
-     * @return              An array with the spliced pieces
+     * @return An array with the spliced pieces
      */
     public static Comparable[][] splice(Comparable[] list, int numberOfLists) {
         if (numberOfLists <= 0) {

@@ -9,7 +9,7 @@ import java.util.Observable;
 
 /**
  * Class to sort a list in a single thread.
- *
+ * <p/>
  * User: rubenernst
  * Date: 9/27/13
  * Time: 2:24 PM
@@ -22,9 +22,9 @@ public class ListThread extends Observable implements Runnable {
     /**
      * Constructor for ListThread
      *
-     * @param sortFactory   The SortFactory to generate a sorter
-     * @param list          The list to sort
-     * @param number        The number of the thread
+     * @param sortFactory The SortFactory to generate a sorter
+     * @param list        The list to sort
+     * @param number      The number of the thread
      * @throws RemoteException
      */
     public ListThread(ISortFactory sortFactory, Comparable[] list, int number) throws RemoteException {

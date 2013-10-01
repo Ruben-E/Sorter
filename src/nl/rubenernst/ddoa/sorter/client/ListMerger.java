@@ -2,7 +2,7 @@ package nl.rubenernst.ddoa.sorter.client;
 
 /**
  * Class to merge multiple ordered lists into one ordered list
- *
+ * <p/>
  * User: rubenernst
  * Date: 9/28/13
  * Time: 8:47 AM
@@ -48,8 +48,8 @@ public class ListMerger {
     /**
      * Merge the next ordered list from the collection into the single merged ordered list
      *
-     * @param currentList   The single merged list
-     * @return              The single merged list with the next ordered single list into it
+     * @param currentList The single merged list
+     * @return The single merged list with the next ordered single list into it
      */
     private Comparable[] mergeNext(Comparable[] currentList) {
         int nextArray = this.lastMerged + 1;
@@ -66,12 +66,12 @@ public class ListMerger {
 
     /**
      * Method to merge two ordered lists into one single ordered list.
-     *
+     * <p/>
      * <p>Source: <a href="http://stackoverflow.com/a/8949433">Mike Saull (Stackoverflow)</a>, 2013</p>
      *
      * @param a One ordered list to merge
      * @param b The other ordered list to merge
-     * @return  The merged list
+     * @return The merged list
      */
     private Comparable[] mergeTwoArrays(Comparable[] a, Comparable[] b) {
 
