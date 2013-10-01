@@ -4,16 +4,34 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 /**
+ * Implementation of bubblesort
+ *
+ * <p>See: <a href="http://en.wikipedia.org/wiki/Bubblesort">Wikipedia</a></p>
+ *
  * User: rubenernst
  * Date: 9/24/13
  * Time: 11:35 AM
  */
 public class BubbleSort extends UnicastRemoteObject implements ISorter {
 
+    /**
+     * Constructor for BubbleSort
+     *
+     * @throws RemoteException
+     */
     public BubbleSort() throws RemoteException {
         super();
     }
 
+    /**
+     * Sort the list
+     *
+     * <p>Source: <a href="http://nl.wikipedia.org/wiki/Bubblesort#Implementatie_in_Java">Wikipedia</a>, 2013</p>
+     *
+     * @param comparables   The list to sort
+     * @return              An ordered list
+     * @throws RemoteException
+     */
     @Override
     public Comparable[] sort(Comparable[] comparables) throws RemoteException {
         int i, j;
