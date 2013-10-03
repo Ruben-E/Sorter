@@ -28,4 +28,14 @@ public class SortFactoryTest {
 
         assertEquals(sorter.getClass(), QuickSort.class);
     }
+
+    @Test
+    public void testBuildSorterMErgeSort() throws Exception {
+        SortType type = SortType.MERGESORT;
+
+        SortFactory sortFactory = new SortFactory();
+        ISorter sorter = sortFactory.buildSorter(type);
+
+        assertEquals(sorter.getClass(), MergeSort.class);
+    }
 }

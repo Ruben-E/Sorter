@@ -53,4 +53,26 @@ public class MergeSortTest {
 
         assertArrayEquals(expected, results);
     }
+
+    @Test
+    public void testSortAllNegative() throws Exception {
+        ISorter sorter = new MergeSort();
+
+        Comparable[] toSort = {-10, -11, -5, -1, -100};
+        Comparable[] expected = {-100, -11, -10, -5, -1};
+        Comparable[] results = sorter.sort(toSort);
+
+        assertArrayEquals(expected, results);
+    }
+
+    @Test
+    public void testSortOneItem() throws Exception {
+        ISorter sorter = new MergeSort();
+
+        Comparable[] toSort = {6};
+        Comparable[] expected = {6};
+        Comparable[] results = sorter.sort(toSort);
+
+        assertArrayEquals(expected, results);
+    }
 }

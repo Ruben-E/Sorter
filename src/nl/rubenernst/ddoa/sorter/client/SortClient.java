@@ -32,7 +32,7 @@ public class SortClient implements Observer {
         sortFactory = (ISortFactory) Naming.lookup("//localhost:1099/sortfactory");
 
         Comparable[] randomList = ListGenerator.generateRandomIntegers(1000);
-        Comparable[][] lists = ListSplicer.splice(randomList, 2);
+        Comparable[][] lists = ListSplicer.splice(randomList, 3);
 
         ListJoiner listJoiner = new ListJoiner(lists.length);
         listJoiner.addObserver(this);
