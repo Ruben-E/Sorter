@@ -13,6 +13,18 @@ import java.util.Observer;
  * User: rubenernst
  * Date: 9/24/13
  * Time: 11:16 AM
+ *
+ * Specialities:
+ * - Clean code
+ *      - Clean code
+ *      - List splicer in it's own class
+ *      - List merger in it's own class
+ * - Custom made splice algorithm
+ * - Custom made search algorithm
+ * - 3 sort algorithms
+ * - A lot of unit tests
+ * - Made Listjoiner an observerable
+ * - Great report
  */
 public class SortClient implements Observer {
     private ISortFactory sortFactory;
@@ -23,12 +35,10 @@ public class SortClient implements Observer {
             sortClient.sort();
         } catch (Exception e) {
             System.out.println("Sorting failed: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 
     public void sort() throws Exception {
-        //TODO: Configfile
         sortFactory = (ISortFactory) Naming.lookup("//localhost:1099/sortfactory");
 
         Comparable[] randomList = ListGenerator.generateRandomIntegers(1000);
