@@ -16,7 +16,7 @@ import java.util.Observer;
  *
  * Specialities:
  * - Clean code
- *      - Clean code
+ *      - Clean code style
  *      - List splicer in it's own class
  *      - List merger in it's own class
  * - Custom made splice algorithm
@@ -24,6 +24,8 @@ import java.util.Observer;
  * - 3 sort algorithms
  * - A lot of unit tests
  * - Made Listjoiner an observerable
+ * - Javadoc
+ * - Git
  * - Great report
  */
 public class SortClient implements Observer {
